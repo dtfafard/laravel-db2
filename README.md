@@ -16,8 +16,16 @@ It provides DB2 Connection by extending the Illuminate Database component of the
 ## Installation
 Add laravel-db2 to your composer.json file:
 ```
+"repositories": [
+    {
+        "name": "cooperl/laravel-db2",
+        "type": "git",
+        "url": "https://github.com/resslinger/laravel-db2.git"
+    }
+]
+
 "require": {
-    "cooperl/laravel-db2": "^8.0"
+    "cooperl/laravel-db2": "^12.0"
 }
 ```
 Use [composer](https://getcomposer.org) to install this package.
