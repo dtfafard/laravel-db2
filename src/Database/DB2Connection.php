@@ -102,7 +102,7 @@ class DB2Connection extends Connection
      */
     protected function getDefaultQueryGrammar()
     {
-        $defaultGrammar = new QueryGrammar;
+        $defaultGrammar = new QueryGrammar($this);
 
         if (array_key_exists('date_format', $this->config)) {
             $defaultGrammar->setDateFormat($this->config['date_format']);
@@ -132,6 +132,15 @@ class DB2Connection extends Connection
         }
 
         return $defaultGrammar;
+    }
+
+    /**
+     * @param QueryGrammar $grammar
+     *
+     * @return $this
+     */
+    protected function withTablePrefix(QueryGrammar $grammar){
+        return $grammar;
     }
 
     /**
