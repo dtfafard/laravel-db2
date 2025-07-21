@@ -44,6 +44,9 @@ class DB2Processor extends Processor
             $result = (array) $results[0];
             if (isset($result[$sequenceStr])) {
                 $id = $result[$sequenceStr];
+            } elseif (isset($result[strtolower($sequenceStr)])) {
+                // Need a better way to handle database option PDO::ATTR_CASE => PDO::CASE_LOWER but will suffice for now
+                $id = $result[strtolower($sequenceStr)];
             } else {
                 $id = $result[strtoupper($sequenceStr)];
             }
